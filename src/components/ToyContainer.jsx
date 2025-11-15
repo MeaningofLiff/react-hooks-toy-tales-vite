@@ -1,10 +1,17 @@
-import React from "react";
-import ToyCard from "./ToyCard";
+import ToyCard from "./ToyCard.jsx";
 
-function ToyContainer() {
+export default function ToyContainer({ toys, onLikeToy, onDonateToy }) {
   return (
-    <div id="toy-collection">{/* Render the collection of ToyCards */}</div>
+    <div className="toy-container">
+      {toys.map((toy) => (
+        <ToyCard
+          key={toy.id}
+          toy={toy}
+          onLikeToy={onLikeToy}
+          onDonateToy={onDonateToy}
+        />
+      ))}
+    </div>
   );
 }
-
-export default ToyContainer;
+ 
